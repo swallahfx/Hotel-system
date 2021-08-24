@@ -18,7 +18,8 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run migrations
-      run: python hotelsystem/manage.py migrate 
+        run: hotelproject/Hotel-system/hotelsystem/manage.py migrate
+
+      # run: python hotelsystem/manage.py migrate 
     - name: Run tests
       run: python3 hotelsystem/manage.py test
-
