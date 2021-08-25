@@ -9,7 +9,7 @@ class Contact(models.Model):
         return self.name
 class Rooms(models.Model):
     manager=models.ForeignKey(RoomManager, on_delete=models.CASCADE)
-    room_no=models.CharField(max_length=5)
+    room_no=models.CharField(max_length=5, )
     room_type=models.CharField(max_length=50)
     is_available=models.BooleanField(default=True)
     price=models.FloatField(default=1000.00)

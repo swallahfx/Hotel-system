@@ -36,6 +36,7 @@ def user_login(request):
     else:
         redirect('user_login')
     return render(request,'login/user_login.html',{})
+    
 def manager_login(request):
     if request.session.get('username',None) and request.session.get('type',None)=='customer':
         return redirect('user_dashboard')
