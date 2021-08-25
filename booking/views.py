@@ -48,6 +48,7 @@ def book_now(request,id):
     else:
         next="book-now/"+id
         return redirect('user_login')
+        
 def book_confirm(request):
     room_no=request.session['room_no']
     start_date=request.session['start_date']
@@ -68,6 +69,7 @@ def book_confirm(request):
     del request.session['room_no']
     messages.info(request,"Room has been successfully booked")
     return redirect('user_dashboard')
+
 def cancel_room(request,id):
     data=Booking.objects.get(id=id)
     room=data.room_no
@@ -75,6 +77,7 @@ def cancel_room(request,id):
     room.save()
     data.delete()
     return HttpResponse("Booking Cancelled Successfully")
+
 def delete_room(request,id):
     data=Rooms.objects.get(id=id)
     manager=data.manager.username
