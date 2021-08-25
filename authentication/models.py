@@ -5,7 +5,7 @@ class Customer(models.Model):
     password=models.CharField(max_length=100)
     email=models.CharField(max_length=50)
     profile_pic=models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None,blank=True)
-    phone_no=models.CharField(max_length=50)
+    phone_no=models.CharField(max_length=60)
     address=models.TextField()
     state=models.CharField(max_length=30,blank=True)
     pin_code=models.IntegerField(blank=True)
@@ -17,7 +17,7 @@ class RoomManager(models.Model):
     password=models.CharField(max_length=100)
     email=models.CharField(max_length=50)
     profile_pic=models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None,blank=True)
-    phone_no=models.CharField(max_length=50)
+    phone_no=models.CharField(max_length=60)
     gender=models.CharField(max_length=20)
     def __str__(self):
         return "Room Manager: "+self.username
