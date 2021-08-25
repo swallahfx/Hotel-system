@@ -1,1 +1,1 @@
-web: gunicorn hotelsystem.wsgi --log-file -
+web: gunicorn hotelsystem.wsgi --reload
