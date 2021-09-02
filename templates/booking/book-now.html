@@ -14,11 +14,11 @@
           <span class="red-text text-lighten-2" style="font-size:2rem">{{data.room_type}}</span>
           <p><b>Stay Duration:</b> {{start}} - {{end}}</p>
           <p><b>Room No: </b> {{data.room_no}}</p>
-          <p><b>Total Bill: </b> {{no_of_days}}*{{data.price}} = {{bill}} rupees</p>
+          <p><b>Total Bill: </b> {{no_of_days}}*{{data.price}} = {{bill}} Naira</p>
           <p><b>Room Manager: </b>{{roomManager}}</p>
         </div>
         <div class="card-action center grey lighten-5" >
-          <a href="/confirm-now-booking" class="blue-text text-darken-2">Confirm Booking</a>
+          <a href="{% url 'initiate-payment' %}" class="blue-text text-darken-2">Pay Now</a>
         </div>
       </div>
     </div>

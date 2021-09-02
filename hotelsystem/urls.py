@@ -24,7 +24,9 @@ urlpatterns = [
     path('user/',include('authentication.urls')),
     path('manager/',include('authentication.urls')),
     path('logout',views.logout,name='logout'),
-    path('api/',include('api.urls'))
+    path('api/',include('api.urls')),
+    path('',include('payment.urls'))
+    # path('payment/', include(('payment.urls', 'payment'), namespace='payment'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
