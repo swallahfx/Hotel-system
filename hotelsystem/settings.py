@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 # import django_heroku
+import dj_database_url
 from pathlib import Path
 import environ
 import os
-# import dj_database_url 
+# import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -27,8 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-63yz=-tc&x51kjvazxle%=32mmu8!t7h(a*bq#u0!rx1xw!m%u'
+
+
 SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -49,12 +53,13 @@ INSTALLED_APPS = [
     'Receptionist',
     'customer',
     'rest_framework',
+    'payment',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,7 +73,8 @@ ROOT_URLCONF = 'hotelsystem.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,10 +97,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env('DATABASE_NAME'),
-        'USER' : env('DATABASE_USER'),
-        'PASSWORD' : env('DATABASE_PASS'),
-        'PORT' : env('DATABASE_PORT'),
-        'HOST' : env('DATABASE_HOST')
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
+        'PORT': env('DATABASE_PORT'),
+        'HOST': env('DATABASE_HOST')
     }
 }
 
@@ -143,7 +149,18 @@ USE_TZ = True
 # )
 
 STATIC_URL = '/static/'
-STATIC_ROOT=os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+
+# PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_SECRET_KEY')
+# PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY')
+
+PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
+PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY')
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # STATICFILES_DIRS=[
 #     os.path.join(BASE_DIR,'static')
 # ]
@@ -154,14 +171,12 @@ MEDIA_URL = '/media/'
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
+prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
 

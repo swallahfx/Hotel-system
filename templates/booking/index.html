@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %} {%load static %} {%block content%}
+{% extends 'base/base.html' %} {% load static %} {% block content %}
 
 <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
@@ -19,10 +19,15 @@
         <div id="wrapper2" class="col s5 input-field">
             <input type="date" id="end1" class="datepicker-end" />
             <label for="end1" class="red-text text-lighten-2" style="font-size:1.4rem;font-family:'Times New Roman'">End Date</label>
+
+            
         </div>
         <div class="center">
             <a class="btn red darken-1" href="" style="padding: 25px;line-height:3px;font-family: 'Rye', cursive;text-transform:capitalize;font-size:0.9rem" id="show_me_rooms">Show me Rooms</a>
         </div>
+         {% comment %} <div class="center">
+            <a class="btn red darken-1" href="{% url ''  %}" style="padding: 25px;line-height:3px;font-family: 'Rye', cursive;text-transform:capitalize;font-size:0.9rem">Show me Rooms</a>
+        </div> {% endcomment %}
     </div>
 </div>
 <div class="divider"></div>
@@ -95,7 +100,7 @@
         <div class="col l4 m6 s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static 'stephen-leonardi--TsLaYk1DLM-unsplash.jpg'%}" alt="">
+                    <img src="{% static 'stephen-leonardi--TsLaYk1DLM-unsplash.jpg' %}" alt="">
                     <a class="btn-floating btn-large halfway-fab waves-effect waves-light red white-text" style="font-size:0.8rem">&#x20A6; 20,000</a>
                 </div>
                 <div class="card-content">
@@ -108,7 +113,7 @@
         <div class="col l4 m6 s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static 'ralph-kayden-FqqiAvJejto-unsplash.jpg'%}" alt="">
+                    <img src="{% static 'ralph-kayden-FqqiAvJejto-unsplash.jpg' %}" alt="">
                     <a class="btn-floating btn-large halfway-fab waves-effect waves-light red white-text" style="font-size:0.8rem">&#x20A6; 30,000</a>
                 </div>
                 <div class="card-content">
@@ -121,7 +126,7 @@
         <div class="col l4 m6 s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static 'roberto-nickson-EeeKjwm2vDo-unsplash.jpg'%}" alt="">
+                    <img src="{% static 'roberto-nickson-EeeKjwm2vDo-unsplash.jpg' %}" alt="">
                     <a class="btn-floating btn-large halfway-fab waves-effect waves-light red white-text" style="font-size:0.8rem">&#x20A6; 50,000</a>
                 </div>
                 <div class="card-content">
@@ -134,7 +139,7 @@ Room with View
         <div class="col l4 m6 s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static 'keytion-7LR0xIBbUUI-unsplash.jpg'%}" alt="">
+                    <img src="{% static 'keytion-7LR0xIBbUUI-unsplash.jpg' %}" alt="">
                     <a class="btn-floating btn-large halfway-fab waves-effect waves-light red white-text" style="font-size:0.8rem">&#x20A6; 70,000</a>
                 </div>
                 <div class="card-content">
@@ -147,7 +152,7 @@ Room with View
         <div class="col l4 m6 s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static 'dan-ramsay-_hDFophEkyM-unsplash.jpg'%}" alt="">
+                    <img src="{% static 'dan-ramsay-_hDFophEkyM-unsplash.jpg' %}" alt="">
                     <a class="btn-floating btn-large halfway-fab waves-effect waves-light red white-text" style="font-size:0.8rem">&#x20A6; 90,000</a>
                 </div>
                 <div class="card-content">
@@ -229,4 +234,4 @@ Room with View
         }
     })
 </script>
-{% endblock %}
+{% endblock content %}
